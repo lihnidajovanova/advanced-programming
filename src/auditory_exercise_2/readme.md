@@ -27,3 +27,21 @@
 
 **За дома:**
 Имплементирајте ги останатите методи за одземање subtract, множење multiply и делење divide.
+
+**Addition (add):** This method adds the real parts and imaginary parts of two complex numbers.
+
+**Subtraction (subtract):** This method subtracts the real parts and imaginary parts of two complex numbers.
+
+**Multiplication (multiply):** This method multiplies two complex numbers using the formula:
+
+<p align="center">(a+bi)×(c+di)=(ac−bd)+(ad+bc)i</p>
+
+**Division (divide):** This method divides two complex numbers using the formula:
+
+<p align="center">
+(a+bi)/(c+di) = ((()ac+bd)+(bc-ad)i)/(c^2+d^2)
+</p>
+
+Here, we use BigDecimal.divide with a MathContext to ensure proper precision.
+
+**toString method:** Converts the complex number to a string in the format "a + bj".
