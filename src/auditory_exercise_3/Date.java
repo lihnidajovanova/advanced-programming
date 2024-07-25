@@ -52,21 +52,21 @@ public class Date {
         this.days = days;
     }
 
-    public int subtract(Date2021 date) {
+    public int subtract(Date date) {
         return this.days - date.days;
     }
 
-    public Date2021 increment(int days) {
-        return new Date2021(this.days + days);
+    public Date increment(int days) {
+        return new Date(this.days + days);
     }
 
     @Override
     public boolean equals(Object other) {
-        Date2021 date = (Date2021) other;
+        Date date = (Date) other;
         return this.days == date.days;
     }
 
-    public int compareTo(Date2021 date) {
+    public int compareTo(Date date) {
         return this.days - date.days;
     }
 
@@ -95,16 +95,16 @@ public class Date {
     }
 
     public static void main(String[] args) {
-        Date2021 sample = new Date2021(1, 10, 2012);
-        System.out.println(sample.subtract(new Date2021(1, 1, 2000)));
+        Date sample = new Date(1, 10, 2012);
+        System.out.println(sample.subtract(new Date(1, 1, 2000)));
         System.out.println(sample);
-        sample = new Date2021(1, 1, 1800);
+        sample = new Date(1, 1, 1800);
         System.out.println(sample);
-        sample = new Date2021(31, 12, 2500);
+        sample = new Date(31, 12, 2500);
         System.out.println(daysTillJan1[daysTillJan1.length - 1]);
         System.out.println(sample.days);
         System.out.println(sample);
-        sample = new Date2021(30, 11, 2012);
+        sample = new Date(30, 11, 2012);
         System.out.println(sample);
         sample = sample.increment(100);
         System.out.println(sample);

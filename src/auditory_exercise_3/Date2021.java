@@ -12,7 +12,7 @@ public class Date2021 implements Comparable<Date2021> {
     private static final int[] daysTillFirstOfMonth;
     private static final int[] daysTillFirstOfYear;
 
-    private int days;
+    private int days2021;
 
     /**
      * A static block is used to initialize static properties and is executed when the class is
@@ -36,8 +36,8 @@ public class Date2021 implements Comparable<Date2021> {
         }
     }
 
-    public Date2021(int days) {
-        this.days = days;
+    public Date2021(int days2021) {
+        this.days2021 = days2021;
     }
 
     public Date2021(int day, int month, int year) {
@@ -51,7 +51,7 @@ public class Date2021 implements Comparable<Date2021> {
         if (isLeapYear(year) && month >= 2)
             days++;
         days += day;
-        this.days = days;
+        this.days2021 = days;
     }
 
     private boolean isDateInvalid(int year) {
@@ -63,11 +63,11 @@ public class Date2021 implements Comparable<Date2021> {
     }
 
     public Date2021 increment(int days) {
-        return new Date2021(this.days + days);
+        return new Date2021(this.days2021 + days);
     }
 
     public int subtract(Date2021 date) {
-        return Math.abs(this.days - date.days);
+        return Math.abs(this.days2021 - date.days2021);
     }
 
     @Override
@@ -75,22 +75,22 @@ public class Date2021 implements Comparable<Date2021> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Date2021 date = (Date2021) o;
-        return days == date.days;
+        return days2021 == date.days2021;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(days);
+        return Objects.hash(days2021);
     }
 
     @Override
     public int compareTo(Date2021 date) {
-        return Integer.compare(this.days, date.days);
+        return Integer.compare(this.days2021, date.days2021);
     }
 
     @Override
     public String toString() {
-        int allDays = days;
+        int allDays = days2021;
         int i;
         for (i = 0; i < daysTillFirstOfYear.length; i++) {
             if (daysTillFirstOfYear[i] >= allDays) break;
@@ -121,7 +121,7 @@ public class Date2021 implements Comparable<Date2021> {
 
         date = new Date2021(31, 12, 2500);
         System.out.println(date);
-        System.out.println(date.days);
+        System.out.println(date.days2021);
         System.out.println(daysTillFirstOfYear[daysTillFirstOfYear.length - 1]);
 
         date = new Date2021(1, 12, 2020);
