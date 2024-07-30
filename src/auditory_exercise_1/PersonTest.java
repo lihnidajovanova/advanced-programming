@@ -29,7 +29,7 @@ class Person2 {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Person2022{" +
                 "name=" + name + '\'' +
                 ", age=" + age +
                 "}";

@@ -13,5 +13,9 @@ public class FirstExample {
         System.out.print("The method print prints the text joined with the previous text, ");
         System.out.print("as seen in this example.");
         System.out.printf("\nThe method printf prints in a formatted manner %.2f\n", 18.9997);
+        System.out.println("My first program. There will be a new line after this." + "Chao.");
+        System.out.printf("The number PI is %.10f\n", Math.PI); // "asdadajj %d %l", arg1, arg2
+        System.out.print("bla bla bla");
+        System.out.println("My first program. There will be a new line after this." + "Chao.");
     }
 }
