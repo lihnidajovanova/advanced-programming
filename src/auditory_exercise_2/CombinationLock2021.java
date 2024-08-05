@@ -1,12 +1,12 @@
 package auditory_exercise_2;
 
 // AT's solution 2021
-public class CombinationLock {
+public class CombinationLock2021 {
     private int combination;
     private boolean isOpen;
     private static int DEFAULT_COMBINATION = 100;
 
-    public CombinationLock(int combination) {
+    public CombinationLock2021(int combination) {
         if (isCombinationValid(combination))
             this.combination = combination;
         else
@@ -40,7 +40,7 @@ public class CombinationLock {
     }
 
     public static void main(String[] args) {
-        CombinationLock validLock = new CombinationLock(234);
+        CombinationLock2021 validLock = new CombinationLock2021(234);
 
         System.out.println("TEST IS OPEN");
         System.out.println(validLock.isOpen());
@@ -56,7 +56,7 @@ public class CombinationLock {
         System.out.println(validLock.changeCombination(234, 777));
         System.out.println(validLock.open(777));
 
-        CombinationLock invalidLock = new CombinationLock(234567);
+        CombinationLock2021 invalidLock = new CombinationLock2021(234567);
 
         System.out.println("TEST IS OPEN");
         System.out.println(invalidLock.isOpen());
