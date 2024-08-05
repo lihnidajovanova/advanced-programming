@@ -2,11 +2,11 @@ package auditory_exercise_1;
 
 import java.util.Objects;
 
-class Person2 {
+class Person {
     String name;
     int age;
 
-    public Person2(String name, int age) {
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -29,10 +29,7 @@ class Person2 {
 
     @Override
     public String toString() {
-        return "Person2022{" +
-                "name=" + name + '\'' +
-                ", age=" + age +
-                "}";
+        return "Person{" + "name='" + name + '\'' + ", age=" + age + "}";
     }
 
     @Override
@@ -41,7 +38,7 @@ class Person2 {
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
-        Person2 person = (Person2) o;
+        Person person = (Person) o;
         return name.equals(person.name);
     }
 
@@ -51,14 +48,15 @@ class Person2 {
     }
 }
 
-public class PersonTest {
+public class Person2023 {
     public static void main(String[] args) {
-        Person2 p1 = new Person2("Stefan", 25);
-        Person2 p2 = new Person2("StEfan", 28);
-        Person2 p3 = p1;
+        Person p1 = new Person("Stefan", 25);
+        Person p2 = new Person("StEfan", 28);
 
+        Person p3 = p1;
         System.out.println(p1);
         System.out.println(p2);
+
         System.out.println(p1 == p3);
     }
 }
