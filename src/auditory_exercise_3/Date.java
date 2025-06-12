@@ -1,34 +1,32 @@
 package auditory_exercise_3;
 
 public class Date {
+    private static final int first_year = 1800;
+    private static final int last_year = 2500;
+    private static final int days_in_year = 365;
 
-    private static final int FIRST_YEAR = 1800;
-    private static final int LAST_YEAR = 2500;
-    private static final int DAYS_IN_YEAR = 365;
-
-    private static final int[] daysOfMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    private static final int[] daysTillFirstOfMonth;
-    private static final int[] daysTillJan1;
+    private static final int[] days_of_month = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    private static final int[] days_till_first_of_month;
+    private static final int[] days_till_januray_1;
 
     static {
-        daysTillFirstOfMonth = new int[12];
-        for (int i = 1; i < 12; i++) {
-            daysTillFirstOfMonth[i] += daysTillFirstOfMonth[i - 1] + daysOfMonth[i - 1];
-        }
-        int totalYears = LAST_YEAR - FIRST_YEAR + 1;
-        daysTillJan1 = new int[totalYears];
-        int currentYear = FIRST_YEAR;
-        for (int i = 1; i < totalYears; i++) {
-            if (isLeapYear(currentYear)) {
-                daysTillJan1[i] = daysTillJan1[i - 1] + DAYS_IN_YEAR + 1;
-            } else {
-                daysTillJan1[i] = daysTillJan1[i - 1] + DAYS_IN_YEAR;
-            }
-            currentYear++;
+        days_till_first_of_month = new int[12];
+        for (int i = 1; i < 12; i++)
+            days_till_first_of_month[i] += days_till_first_of_month[i - 1] + days_of_month[i - 1];
+
+        int total_years = last_year - first_year + 1;
+        days_till_januray_1 = new int[total_years];
+        int current_year = first_year;
+        for (int i = 1; i < total_years; i++) {
+            if (is_leap_year(current_year))
+                days_till_januray_1[i] = days_till_januray_1[i - 1] + days_in_year + 1;
+            else
+                days_till_januray_1[i] = days_till_januray_1[i - 1] + days_in_year;
+            current_year++;
         }
     }
 
-    private static boolean isLeapYear(int year) {
+    private static boolean is_leap_year(int year) {
         return (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0));
     }
 
@@ -40,14 +38,14 @@ public class Date {
 
     public Date(int date, int month, int year) {
         int days = 0;
-        if (year < FIRST_YEAR || year > LAST_YEAR) {
+        if (year < first_year || year > last_year)
             throw new RuntimeException();
-        }
-        days += daysTillJan1[year - FIRST_YEAR];
-        days += daysTillFirstOfMonth[month - 1];
-        if (month > 2 && isLeapYear(year)) {
+
+        days += days_till_januray_1[year - first_year];
+        days += days_till_first_of_month[month - 1];
+        if (month > 2 && is_leap_year(year))
             days++;
-        }
+
         days += date;
         this.days = days;
     }
@@ -74,23 +72,21 @@ public class Date {
     public String toString() {
         int d = days;
         int i;
-        for (i = 0; i < daysTillJan1.length; i++) {
-            if (daysTillJan1[i] >= days) {
+        for (i = 0; i < days_till_januray_1.length; i++)
+            if (days_till_januray_1[i] >= days)
                 break;
-            }
-        }
-        d -= daysTillJan1[i - 1];
-        int year = FIRST_YEAR + i - 1;
-        if (isLeapYear(year)) {
+
+        d -= days_till_januray_1[i - 1];
+        int year = first_year + i - 1;
+        if (is_leap_year(year))
             d--;
-        }
-        for (i = 0; i < daysTillFirstOfMonth.length; i++) {
-            if (daysTillFirstOfMonth[i] >= d) {
+
+        for (i = 0; i < days_till_first_of_month.length; i++)
+            if (days_till_first_of_month[i] >= d)
                 break;
-            }
-        }
+
         int month = i;
-        d -= daysTillFirstOfMonth[i - 1];
+        d -= days_till_first_of_month[i - 1];
         return String.format("%02d.%02d.%4d", d, month, year);
     }
 
@@ -101,7 +97,7 @@ public class Date {
         sample = new Date(1, 1, 1800);
         System.out.println(sample);
         sample = new Date(31, 12, 2500);
-        System.out.println(daysTillJan1[daysTillJan1.length - 1]);
+        System.out.println(days_till_januray_1[days_till_januray_1.length - 1]);
         System.out.println(sample.days);
         System.out.println(sample);
         sample = new Date(30, 11, 2012);
